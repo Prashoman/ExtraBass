@@ -7,6 +7,7 @@ use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\VendorController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\WishlistController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,3 +38,6 @@ Route::get('category/product/{id}', [FrontendController::class, 'categorywish'])
 Route::resource('category', CategoryController::class);
 Route::resource('vendor', VendorController::class);
 Route::resource('product', ProductController::class);
+Route::resource('wishlist', WishlistController::class);
+Route::get('Wishlist/insert/{prduct_id}', [WishlistController::class, 'insert'])->name('wishlist.insert');
+Route::get('Wishlist/remove/{wishlist_id}', [WishlistController::class, 'remove'])->name('wishlist.remove');

@@ -74,7 +74,7 @@
                     <div class="col col-lg-auto align-self-center pl-0">
                         <div class="header-actions">
                             @auth
-                            <a href="" >{{auth()->user()->name}}</a>
+                            <a href="">{{auth()->user()->name}}</a>
 
                                 @else
                                 <a href="login.html" class="header-action-btn login-btn" data-bs-toggle="modal"
