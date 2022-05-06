@@ -2,98 +2,9 @@
 
 @section('body')
 <!-- OffCanvas Wishlist Start -->
-<div id="offcanvas-wishlist" class="offcanvas offcanvas-wishlist">
-    <div class="inner">
-        <div class="head">
-            <span class="title">Wishlist</span>
-            <button class="offcanvas-close">×</button>
-        </div>
-        <div class="body customScroll">
-            <ul class="minicart-product-list">
-                <li>
-                    <a href="single-product.html" class="image"><img src="assets/images/product-image/1.jpg"
-                            alt="Cart product Image"></a>
-                    <div class="content">
-                        <a href="single-product.html" class="title">Women's Elizabeth Coat</a>
-                        <span class="quantity-price">1 x <span class="amount">$21.86</span></span>
-                        <a href="#" class="remove">×</a>
-                    </div>
-                </li>
-                <li>
-                    <a href="single-product.html" class="image"><img src="assets/images/product-image/2.jpg"
-                            alt="Cart product Image"></a>
-                    <div class="content">
-                        <a href="single-product.html" class="title">Long sleeve knee length</a>
-                        <span class="quantity-price">1 x <span class="amount">$13.28</span></span>
-                        <a href="#" class="remove">×</a>
-                    </div>
-                </li>
-                <li>
-                    <a href="single-product.html" class="image"><img src="assets/images/product-image/3.jpg"
-                            alt="Cart product Image"></a>
-                    <div class="content">
-                        <a href="single-product.html" class="title">Cool Man Wearing Leather</a>
-                        <span class="quantity-price">1 x <span class="amount">$17.34</span></span>
-                        <a href="#" class="remove">×</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div class="foot">
-            <div class="buttons">
-                <a href="wishlist.html" class="btn btn-dark btn-hover-primary mt-30px">view wishlist</a>
-            </div>
-        </div>
-    </div>
-</div>
+
 <!-- OffCanvas Wishlist End -->
-<!-- OffCanvas Cart Start -->
-<div id="offcanvas-cart" class="offcanvas offcanvas-cart">
-    <div class="inner">
-        <div class="head">
-            <span class="title">Cart</span>
-            <button class="offcanvas-close">×</button>
-        </div>
-        <div class="body customScroll">
-            <ul class="minicart-product-list">
-                <li>
-                    <a href="single-product.html" class="image"><img src="assets/images/product-image/1.jpg"
-                            alt="Cart product Image"></a>
-                    <div class="content">
-                        <a href="single-product.html" class="title">Women's Elizabeth Coat</a>
-                        <span class="quantity-price">1 x <span class="amount">$18.86</span></span>
-                        <a href="#" class="remove">×</a>
-                    </div>
-                </li>
-                <li>
-                    <a href="single-product.html" class="image"><img src="assets/images/product-image/2.jpg"
-                            alt="Cart product Image"></a>
-                    <div class="content">
-                        <a href="single-product.html" class="title">Long sleeve knee length</a>
-                        <span class="quantity-price">1 x <span class="amount">$43.28</span></span>
-                        <a href="#" class="remove">×</a>
-                    </div>
-                </li>
-                <li>
-                    <a href="single-product.html" class="image"><img src="assets/images/product-image/3.jpg"
-                            alt="Cart product Image"></a>
-                    <div class="content">
-                        <a href="single-product.html" class="title">Cool Man Wearing Leather</a>
-                        <span class="quantity-price">1 x <span class="amount">$37.34</span></span>
-                        <a href="#" class="remove">×</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div class="foot">
-            <div class="buttons mt-30px">
-                <a href="cart.html" class="btn btn-dark btn-hover-primary mb-30px">view cart</a>
-                <a href="checkout.html" class="btn btn-outline-dark current-btn">checkout</a>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- OffCanvas Cart End -->
+
 
 <!-- OffCanvas Menu Start -->
 <div id="offcanvas-mobile-menu" class="offcanvas offcanvas-mobile-menu">
@@ -315,10 +226,11 @@
                         </ul>
                     </div>
                     <div class="pro-details-categories-info pro-details-same-style d-flex">
-                        <span>Categories: </span>
+                        <span>Category: </span>
                         <ul class="d-flex">
                             <li>
-                                <a href="{{ route('category.wish', $products->category_id)}}">{{App\Models\Category::find($products->category_id)->category_name}}</a>
+                                <a href="{{ route('category.wish', $products->category_id)}}">{{$products->relationTocategory->category_name}}
+                                </a>
                             </li>
 
                         </ul>
@@ -530,8 +442,9 @@
                                 </span>
                                 <span class="rating-num">( 5 Review )</span>
                             </span>
-                            <h5 class="title"><a href="single-product.html">{{$related_product->product_name}}
+                            <h5 class="title"><a href="{{ route('product.details',$related_product->slug )}}" >{{$related_product->product_name}}
                                 </a>
+
                             </h5>
                             <span class="price">
                                 <span class="new">${{$related_product->product_price}}</span>

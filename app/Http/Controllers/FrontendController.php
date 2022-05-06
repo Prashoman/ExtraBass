@@ -30,6 +30,7 @@ class FrontendController extends Controller
         $wishlist_id = '';
       }
 
+
         $related_products = Product::where('slug', '!=', $slug)->where('category_id', Product::where('slug', $slug)->firstOrFail()->category_id)->get();
         $categoris = Category::all();
         $products = Product::where('slug', $slug)->first();
