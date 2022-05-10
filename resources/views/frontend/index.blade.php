@@ -2,7 +2,81 @@
 
 @section('body')
 
+<div id="offcanvas-wishlist" class="offcanvas offcanvas-wishlist">
+    <div class="inner">
+        <div class="head">
+            <span class="title">Wishlist</span>
+            <button class="offcanvas-close">×</button>
+        </div>
+        <div class="body customScroll">
+            <ul class="minicart-product-list">
+                <li>
+                    <a href="single-product.html" class="image"><img src="{{asset('frontend')}}/assets/images/product-image/1.jpg"
+                            alt="Cart product Image"></a>
+                    <div class="content">
+                        <a href="single-product.html" class="title">Women's Elizabeth Coat</a>
+                        <span class="quantity-price">1 x <span class="amount">$21.86</span></span>
+                        <a href="#" class="remove">×</a>
+                    </div>
+                </li>
 
+            </ul>
+        </div>
+        <div class="foot">
+            <div class="buttons">
+                <a href="wishlist.html" class="btn btn-dark btn-hover-primary mt-30px">view wishlist</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- OffCanvas Wishlist End -->
+<!-- OffCanvas Cart Start -->
+<div id="offcanvas-cart" class="offcanvas offcanvas-cart">
+    <div class="inner">
+        <div class="head">
+            <span class="title">Cart</span>
+            <button class="offcanvas-close">×</button>
+        </div>
+        <div class="body customScroll">
+            <ul class="minicart-product-list">
+                <li>
+                    <a href="single-product.html" class="image"><img src="{{asset('frontend')}}/assets/images/product-image/1.jpg"
+                            alt="Cart product Image"></a>
+                    <div class="content">
+                        <a href="single-product.html" class="title">Women's Elizabeth Coat</a>
+                        <span class="quantity-price">1 x <span class="amount">$18.86</span></span>
+                        <a href="#" class="remove">×</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="single-product.html" class="image"><img src="{{asset('frontend')}}/assets/images/product-image/2.jpg"
+                            alt="Cart product Image"></a>
+                    <div class="content">
+                        <a href="single-product.html" class="title">Long sleeve knee length</a>
+                        <span class="quantity-price">1 x <span class="amount">$43.28</span></span>
+                        <a href="#" class="remove">×</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="single-product.html" class="image"><img src="{{asset('frontend')}}/assets/images/product-image/3.jpg"
+                            alt="Cart product Image"></a>
+                    <div class="content">
+                        <a href="single-product.html" class="title">Cool Man Wearing Leather</a>
+                        <span class="quantity-price">1 x <span class="amount">$37.34</span></span>
+                        <a href="#" class="remove">×</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="foot">
+            <div class="buttons mt-30px">
+                <a href="cart.html" class="btn btn-dark btn-hover-primary mb-30px">view cart</a>
+                <a href="checkout.html" class="btn btn-outline-dark current-btn">checkout</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- OffCanvas Cart End -->
 
 <!-- OffCanvas Menu Start -->
 <div id="offcanvas-mobile-menu" class="offcanvas offcanvas-mobile-menu">
@@ -220,8 +294,7 @@
 
                                             </span>
                                             <div class="actions">
-                                                <a href="wishlist.html" class="action wishlist" title="Wishlist"><i
-                                                        class="pe-7s-like"></i></a>
+
                                                 <a href="#" class="action quickview" data-link-action="quickview"
                                                     title="Quick view" data-bs-toggle="modal"
                                                     data-bs-target="#exampleModal"><i class="pe-7s-search"></i></a>
@@ -246,7 +319,7 @@
 
                                             </span>
                                             <span class="price">
-                                                <span class="new">Vendor: {{\App\Models\User::find($all_product->user_id)->name}}</span>
+                                                <span class="new">Vendor: {{VendorName($all_product)}}</span>
 
 
                                             </span>

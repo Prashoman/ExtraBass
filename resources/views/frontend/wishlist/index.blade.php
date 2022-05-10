@@ -50,7 +50,7 @@
 
 
                                         <td class="product-wishlist-cart">
-                                            <a href="#">add to cart</a>
+                                            <a href="{{route('cart.insert', $wishlist->id) }}">add to cart</a>
                                         </td>
                                     </tr>
                                     @endforeach

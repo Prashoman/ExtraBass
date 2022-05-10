@@ -94,7 +94,7 @@
                             <a href="#offcanvas-cart"
                                 class="header-action-btn header-action-btn-cart offcanvas-toggle pr-0">
                                 <i class="pe-7s-shopbag"></i>
-                                <span class="header-action-num">01</span>
+                                <span class="header-action-num">{{TotalProduct()}}</span>
                                 <!-- <span class="cart-amount">€30.00</span> -->
                             </a>
                             <a href="#offcanvas-mobile-menu"
@@ -119,7 +119,7 @@
             <div class="body customScroll">
                 <ul class="minicart-product-list">
 
-                @forelse (App\Models\Wishlist::where('user_id', auth()->id())->get() as $wishlist )
+                @forelse (wishlists() as $wishlist )
                 <li>
                     <a href="single-product.html" class="image"><img src="{{asset('uploads/product_photos')}}/{{$wishlist->relationToproduct->product_photo}}"
                             alt="Cart product Image"></a>
@@ -128,6 +128,7 @@
                         <span class="quantity-price"><span class="amount">${{$wishlist->relationToproduct->product_price}}</span></span>
                         <a href="{{ route('wishlist.remove', $wishlist->id)}}" class="remove">×</a>
                     </div>
+
                 </li>
                 @empty
                 No Product WishList
@@ -154,33 +155,22 @@
         </div>
         <div class="body customScroll">
             <ul class="minicart-product-list">
+
+                @forelse ( CartallProduct() as $cart)
                 <li>
-                    <a href="single-product.html" class="image"><img src="assets/images/product-image/1.jpg"
+                    <a href="single-product.html" class="image"><img src="{{asset('uploads/product_photos')}}/{{$cart->CartToProduct->product_photo}}"
                             alt="Cart product Image"></a>
                     <div class="content">
-                        <a href="single-product.html" class="title">Women's Elizabeth Coat</a>
-                        <span class="quantity-price">1 x <span class="amount">$18.86</span></span>
+                        <a href="single-product.html" class="title">{{$cart->CartToProduct->product_name}}</a>
+                        <span class="quantity-price">{{$cart->amount}} x <span class="amount">${{$cart->CartToProduct->product_price}}</span></span>
                         <a href="#" class="remove">×</a>
                     </div>
                 </li>
-                <li>
-                    <a href="single-product.html" class="image"><img src="assets/images/product-image/2.jpg"
-                            alt="Cart product Image"></a>
-                    <div class="content">
-                        <a href="single-product.html" class="title">Long sleeve knee length</a>
-                        <span class="quantity-price">1 x <span class="amount">$43.28</span></span>
-                        <a href="#" class="remove">×</a>
-                    </div>
-                </li>
-                <li>
-                    <a href="single-product.html" class="image"><img src="assets/images/product-image/3.jpg"
-                            alt="Cart product Image"></a>
-                    <div class="content">
-                        <a href="single-product.html" class="title">Cool Man Wearing Leather</a>
-                        <span class="quantity-price">1 x <span class="amount">$37.34</span></span>
-                        <a href="#" class="remove">×</a>
-                    </div>
-                </li>
+                @empty
+                    <h3>No product cart show</h3>
+                @endforelse
+
+
             </ul>
         </div>
         <div class="foot">
