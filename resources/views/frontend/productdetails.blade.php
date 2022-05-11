@@ -187,14 +187,17 @@
                         <span class="read-review"><a class="reviews" href="#">( 5 Customer Review )</a></span>
                     </div>
                     <p class="mt-30px mb-0">{{$products->sort_description}}</p>
-                    <div class="pro-details-quality">
-                        <div class="cart-plus-minus">
-                            <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1" />
-                        </div>
-                        <div class="pro-details-cart">
-                            <button class="add-cart" href="#"> Add To
-                                Cart</button>
-                        </div>
+                    <form action="{{ route('cart.add', $products->id)}}" method="POST">
+                        @csrf
+                        <div class="pro-details-quality">
+                            <div class="cart-plus-minus">
+                                <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1" />
+                            </div>
+                            <div class="pro-details-cart">
+                                <button class="add-cart" type="submit"> Add To
+                                    Cart</button>
+                            </div>
+                    </form>
                         @auth
 
                             <div class="pro-details-compare-wishlist pro-details-wishlist ">

@@ -44,3 +44,7 @@ Route::resource('wishlist', WishlistController::class);
 Route::get('Wishlist/insert/{prduct_id}', [WishlistController::class, 'insert'])->name('wishlist.insert');
 Route::get('Wishlist/remove/{wishlist_id}', [WishlistController::class, 'remove'])->name('wishlist.remove');
 Route::get('cart/insert/{wishlist_id}', [CartController::class, 'insert'])->name('cart.insert');
+Route::post('cart/add/{product_id}', [CartController::class, 'addcart'])->name('cart.add');
+Route::get('cart', [CartController::class, 'viewcart'])->name('cart.view');
+Route::get('cart/remove/{id}', [CartController::class, 'romovecart'])->name('cart.remove');
+Route::get('allcart/remove/{user_id}', [CartController::class, 'allcartremove'])->name('allcart.remove');

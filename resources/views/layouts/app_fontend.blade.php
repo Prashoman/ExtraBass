@@ -163,7 +163,7 @@
                     <div class="content">
                         <a href="single-product.html" class="title">{{$cart->CartToProduct->product_name}}</a>
                         <span class="quantity-price">{{$cart->amount}} x <span class="amount">${{$cart->CartToProduct->product_price}}</span></span>
-                        <a href="#" class="remove">×</a>
+                        <a href="{{ route('cart.remove', $cart->id)}}" class="remove">×</a>
                     </div>
                 </li>
                 @empty
@@ -175,7 +175,7 @@
         </div>
         <div class="foot">
             <div class="buttons mt-30px">
-                <a href="cart.html" class="btn btn-dark btn-hover-primary mb-30px">view cart</a>
+                <a href="{{ route('cart.view') }}" class="btn btn-dark btn-hover-primary mb-30px">view cart</a>
                 <a href="checkout.html" class="btn btn-outline-dark current-btn">checkout</a>
             </div>
         </div>
