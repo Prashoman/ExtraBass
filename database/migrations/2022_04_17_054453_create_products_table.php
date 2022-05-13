@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('product_name');
             $table->string('product_code');
             $table->text('slug');
+            $table->integer('quentity');
             $table->text('sort_description');
             $table->longText('long_description');
             $table->string('product_photo');

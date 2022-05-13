@@ -9,6 +9,7 @@ use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\admin\CuponController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,3 +49,5 @@ Route::post('cart/add/{product_id}', [CartController::class, 'addcart'])->name('
 Route::get('cart', [CartController::class, 'viewcart'])->name('cart.view');
 Route::get('cart/remove/{id}', [CartController::class, 'romovecart'])->name('cart.remove');
 Route::get('allcart/remove/{user_id}', [CartController::class, 'allcartremove'])->name('allcart.remove');
+Route::post('cart/update', [CartController::class, 'updatecart'])->name('updatecart');
+Route::resource('cupon', CuponController::class);

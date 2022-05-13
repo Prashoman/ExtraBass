@@ -84,6 +84,7 @@ class ProductController extends Controller
             'slug' => Str::slug($request->product_name).'-'.Str::random(4).auth()->user()->id,
             'sort_description' => $request->sort_description,
             'long_description' => $request->long_description,
+            'quentity' => $request->product_quentity,
             'product_photo' => $photo_name,
             'product_name' => $request->product_name,
         ]);

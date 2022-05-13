@@ -34,18 +34,30 @@ class CartController extends Controller
     public function addcart(Request $request, $product_id){
 
 
-        if(Cart::where('user_id', auth()->id())->where('product_id', $product_id)->exists()){
-            Cart::where('user_id', auth()->id())->where('product_id', $product_id)->increment('amount', $request->qtybutton);
-       }
-       else{
-        Cart::insert([
-            'user_id'=> auth()->id(),
-            'vendor_id'=>Product::find($product_id)->user_id,
-            'product_id'=>$product_id,
-            'amount'=>$request->qtybutton,
-            'created_at'=> Carbon::now(),
-        ]);
-       }
+        if($request->qtybutton > Product::find($product_id)->quentity){
+            return back()->with('stockout', 'This product Stock Out.');
+        }else{
+            if(Cart::where('user_id', auth()->id())->where('product_id', $product_id)->exists()){
+
+
+                if((Cart::where('user_id', auth()->id())->where('product_id', $product_id)->first()->amount + $request->qtybutton) > (Product::find($product_id)->quentity)){
+                    return back()->with('stockout', 'This product Now all ready Cart.');
+                }else{
+                    Cart::where('user_id', auth()->id())->where('product_id', $product_id)->increment('amount', $request->qtybutton);
+                }
+           }
+           else{
+            Cart::insert([
+                'user_id'=> auth()->id(),
+                'vendor_id'=>Product::find($product_id)->user_id,
+                'product_id'=>$product_id,
+                'amount'=>$request->qtybutton,
+                'created_at'=> Carbon::now(),
+            ]);
+           }
+        }
+
+
        return back();
 
 
@@ -62,5 +74,13 @@ class CartController extends Controller
       Cart::where('user_id', $user_id)->delete();
       return back();
 
+    }
+    public function updatecart(Request $request){
+        foreach($request->qtybutton as $cart_id => $cartvalue){
+        Cart::find($cart_id)->update([
+            'amount' => $cartvalue
+        ]);
+        }
+        return back();
     }
 }

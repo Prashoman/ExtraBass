@@ -43,6 +43,12 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                        <label class="col-2 col-form-label">Product Quentity</label>
+                        <div class="col-10">
+                            <input type="number" name="product_quentity" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label class="col-2 col-form-label">Sort description</label>
                         <div class="col-10">
                         <textarea name="sort_description" class="form-control" rows="2"></textarea>

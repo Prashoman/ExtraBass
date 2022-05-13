@@ -141,6 +141,7 @@
 
 <!-- Product Details Area Start -->
 <div class="product-details-area pt-100px pb-100px">
+
     <div class="container">
         <div class="row">
             <div class="col-lg-6 col-sm-12 col-xs-12 mb-lm-30px mb-md-30px mb-sm-30px">
@@ -169,12 +170,20 @@
                 </div>
             </div>
             <div class="col-lg-6 col-sm-12 col-xs-12" data-aos="fade-up" data-aos-delay="200">
+                @if(session('stockout'))
+                    <div class="alert alert-danger">
+                        {{session('stockout')}}
+                    </div>
+                @endif
+
                 <div class="product-details-content quickview-content">
                     <h2>{{$products->product_name}}</h2>
+                    <span>Avilable: {{$products->quentity}}</span>
                     <div class="pricing-meta">
                         <ul>
                             <li class="old-price not-cut">${{$products->product_price}}</li>
                         </ul>
+
                     </div>
                     <div class="pro-details-rating-wrap">
                         <div class="rating-product">
