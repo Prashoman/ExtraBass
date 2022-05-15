@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Cupon;
 use App\Models\Product;
 use App\Models\Wishlist;
 use Carbon\Carbon;
@@ -64,7 +65,46 @@ class CartController extends Controller
 
     }
     public function viewcart(){
-        return view('frontend.cart.index');
+
+        if(isset($_GET['coupon_name'])){
+            if($_GET['coupon_name']){
+                $cupon_name = $_GET['coupon_name'];
+                if(Cupon::where('cupon_name', $cupon_name)->exists()){
+                    if(Cupon::where('cupon_name', $cupon_name)->first()->limit > 0){
+
+                        if(Carbon::now()->format('Y-m-d') <= Cupon::where('cupon_name', $cupon_name)->first()->validatey){
+
+                            $discount = Cupon::where('cupon_name', $cupon_name)->first()->discount;
+                            $discount_price = (session('Total_price')*$discount)/100;
+
+                        }else{
+
+                            $discount_price = 0;
+                            return redirect('cart')->with('cupon_erorr', 'This Cupon Date is Over');
+                        }
+                    }else{
+
+                        $discount_price = 0;
+                        return redirect('cart')->with('cupon_erorr', 'This Cupon limit is Over');
+                    }
+                }else{
+
+                    $discount_price = 0;
+                    return redirect('cart')->with('cupon_erorr', 'This Cupon not my Platform Record');
+                }
+
+            }else
+            {
+
+                $discount_price = 0;
+            }
+        }else{
+                $cupon_name ="";
+                $discount_price = 0;
+
+        }
+
+        return view('frontend.cart.index', compact('cupon_name','discount_price') );
     }
     public function romovecart($id){
         Cart::find($id)->delete();
