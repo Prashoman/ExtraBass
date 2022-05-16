@@ -195,7 +195,7 @@
                             @if ($result)
                                 <span class="text-danger">Plause Remove Stock Out Product</span>
                                 @else
-                                <a href="checkout.html">Proceed to Checkout</a>
+                                <a href="{{ route('checkout') }}">Proceed to Checkout</a>
                             @endif
 
 
