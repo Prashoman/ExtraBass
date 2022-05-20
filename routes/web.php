@@ -32,6 +32,8 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/email/offer', [HomeController::class, 'emailoffer'])->name('emailoffer');
 Route::get('/email/send/{id}', [HomeController::class, 'sendemail'])->name('send.email');
+Route::get('/location', [HomeController::class, 'location'])->name('location');
+Route::post('/location/active', [HomeController::class, 'location_active'])->name('location.active');
 Route::get('/profile',[ProfileController::class, 'index'])->name('profile');
 Route::post('/profile/name/change',[ProfileController::class, 'changename'])->name('change.name');
 Route::post('/profile/password/change',[ProfileController::class, 'changepassword'])->name('change.password');
@@ -53,3 +55,5 @@ Route::get('allcart/remove/{user_id}', [CartController::class, 'allcartremove'])
 Route::post('cart/update', [CartController::class, 'updatecart'])->name('updatecart');
 Route::resource('cupon', CuponController::class);
 Route::get('checkout', [CheckoutController::class, 'checkout'])->name('checkout');
+Route::post('checkout', [CheckoutController::class, 'checkout_store'])->name('checkout.store');
+Route::post('checkout/get/up', [CheckoutController::class, 'checkout_get'])->name('checkout_get');

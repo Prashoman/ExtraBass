@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="robots" content="index, follow" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Jesco - Fashoin eCommerce HTML Template</title>
     <meta name="description" content="Jesco - Fashoin eCommerce HTML Template" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -31,6 +32,7 @@
     <link rel="stylesheet" href="{{asset('frontend')}}/assets/css/vendor/vendor.min.css" />
     <link rel="stylesheet" href="{{asset('frontend')}}/assets/css/plugins/plugins.min.css" />
     <link rel="stylesheet" href="{{asset('frontend')}}/assets/css/style.min.css">
+    <link rel="stylesheet" href="{{asset('backend')}}/assets/plugins/select2/css/select2.min.css">
 
     <!-- Main Style -->
     <!-- <link rel="stylesheet" href="{{asset('frontend')}}/assets/css/style.css" /> -->
@@ -535,6 +537,7 @@
 
     <!-- Main Js -->
     <script src="{{asset('frontend')}}/assets/js/main.js"></script>
+    <script src="{{asset('backend')}}/assets/plugins/select2/js/select2.min.js"></script>
     @yield('footer_script')
 </body>
 

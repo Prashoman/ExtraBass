@@ -175,6 +175,11 @@
                     </div>
                     @php
                          Session::put('Total_price',$total_price);
+                         Session::put('cupon_name', $cupon_name);
+                         Session::put('discount_price', $discount_price);
+
+
+
                     @endphp
                     <div class="col-lg-6 col-md-12 mt-md-30px">
                         <div class="grand-totall">
@@ -189,13 +194,14 @@
                                 <ul>
                                     <li><input type="radio" id="btn1" name="shiping" /> Standard <span>$20.00</span></li>
                                     <li><input type="radio" id="btn2" name="shiping" /> Express <span>$30.00</span></li>
+                                    <li><input type="radio" id="btn3" name="shiping" /> Free <span>$00.00</span></li>
                                 </ul>
                             </div>
                             <h4 class="grand-totall-title">Grand Total <span id="grand_total">{{$total_price - $discount_price}}</span> <span>$</span></h4>
                             @if ($result)
                                 <span class="text-danger">Plause Remove Stock Out Product</span>
                                 @else
-                                <a href="{{ route('checkout') }}">Proceed to Checkout</a>
+                                <a id="checkout_dtn_active" class="d-none" href="{{ route('checkout') }}">Proceed to Checkout</a>
                             @endif
 
 
@@ -214,11 +220,18 @@
     $('#btn1').click(function(){
 
         $('#grand_total').html(parseInt($('#total_price').html())+20);
+        $('#checkout_dtn_active').removeClass('d-none');
     });
     $('#btn2').click(function(){
 
-    $('#grand_total').html(parseInt($('#total_price').html())+30);
+        $('#grand_total').html(parseInt($('#total_price').html())+30);
+        $('#checkout_dtn_active').removeClass('d-none');
     });
+    $('#btn3').click(function(){
+
+    $('#grand_total').html(parseInt($('#total_price').html())+0);
+    $('#checkout_dtn_active').removeClass('d-none');
+});
 </script>
 
 @endsection

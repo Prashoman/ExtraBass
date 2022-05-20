@@ -18,6 +18,7 @@
         <link href="{{asset('backend')}}/assets/css/style.css" rel="stylesheet" type="text/css" />
 
         <script src="{{asset('backend')}}/assets/js/modernizr.min.js"></script>
+        <link rel="stylesheet" href="{{asset('backend')}}/assets/plugins/select2/css/select2.min.css">
 
     </head>
 
@@ -139,6 +140,9 @@
         <!-- App js -->
         <script src="{{asset('backend')}}/assets/js/jquery.core.js"></script>
         <script src="{{asset('backend')}}/assets/js/jquery.app.js"></script>
+        <script src="{{asset('backend')}}/assets/plugins/select2/js/select2.min.js"></script>
+
+        @yield('script_footer')
 
     </body>
 </html>
