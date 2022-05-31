@@ -6,7 +6,13 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Mail\EmailOffer;
 use App\Models\Country;
+use App\Models\Order_detail;
+use App\Models\Order_summery;
+use App\Models\Rating;
 use Illuminate\Support\Facades\Mail;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Crypt;
 
 class HomeController extends Controller
 {
@@ -72,5 +78,49 @@ class HomeController extends Controller
         }
         return back();
 
+    }
+
+    public function order_details(){
+       $Order_summeries = Order_summery::where('user_id', auth()->id())->get();
+        return view('admin.order_details.index', compact('Order_summeries'));
+    }
+    public function invoice_download($id){
+
+        $Order_summeries = Order_summery::find($id);
+
+        $pdf = PDF::loadView('pdf.invoice', compact('Order_summeries'));
+        return $pdf->download('invoice.pdf');
+    }
+    public function order_list(){
+        $Order_summeries = Order_summery::all();
+        return view('admin.all_orders.index', compact('Order_summeries'));
+    }
+    public function order_delivared($id){
+
+        Order_summery::find($id)->update([
+            'delivared' => 1,
+        ]);
+        return back();
+    }
+    public function orders_details($id){
+         $order_summeris = Order_summery::find(Crypt::decrypt($id));
+
+        $order_details = Order_detail::where('summery_id', Crypt::decrypt($id))->get();
+
+        return view('admin.myorders.index', compact('order_summeris', 'order_details'));
+    }
+    public function rating(Request $request, $id){
+
+
+       Rating::insert([
+        'user_id' => auth()->id(),
+        'order_details_id' => $id,
+        'product_id' => Order_detail::find($id)->product_id,
+        'massege' => $request->massege,
+        'rate' => $request->rate,
+        'created_at' => Carbon::now()
+
+       ]);
+       return back();
     }
 }

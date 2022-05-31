@@ -7,115 +7,7 @@
 
 
 <!-- OffCanvas Menu Start -->
-<div id="offcanvas-mobile-menu" class="offcanvas offcanvas-mobile-menu">
-    <button class="offcanvas-close"></button>
 
-    <div class="inner customScroll">
-
-        <div class="offcanvas-menu mb-4">
-            <ul>
-                <li><a href="#"><span class="menu-text">Home</span></a>
-                    <ul class="sub-menu">
-                        <li><a href="index.html"><span class="menu-text">Home 1</span></a></li>
-                        <li><a href="index-2.html"><span class="menu-text">Home 2</span></a></li>
-                    </ul>
-                </li>
-                <li><a href="#"><span class="menu-text">Shop</span></a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a href="#"><span class="menu-text">Shop Page</span></a>
-                            <ul class="sub-menu">
-                                <li class="title"><a href="#">Shop Page</a></li>
-                                <li><a href="shop-3-column.html">Shop 3 Column</a></li>
-                                <li><a href="shop-4-column.html">Shop 4 Column</a></li>
-                                <li><a href="shop-left-sidebar.html">Shop Left Sidebar</a></li>
-                                <li><a href="shop-right-sidebar.html">Shop Right Sidebar</a></li>
-                                <li><a href="shop-list-left-sidebar.html">Shop List Left Sidebar</a></li>
-                                <li><a href="shop-list-right-sidebar.html">Shop List Right Sidebar</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#"><span class="menu-text">product Details Page</span></a>
-                            <ul class="sub-menu">
-                                <li><a href="single-product.html">Product Single</a></li>
-                                <li><a href="single-product-variable.html">Product Variable</a></li>
-                                <li><a href="single-product-affiliate.html">Product Affiliate</a></li>
-                                <li><a href="single-product-group.html">Product Group</a></li>
-                                <li><a href="single-product-tabstyle-2.html">Product Tab 2</a></li>
-                                <li><a href="single-product-tabstyle-3.html">Product Tab 3</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#"><span class="menu-text">Single Product Page</span></a>
-                            <ul class="sub-menu">
-                                <li><a href="single-product-slider.html">Product Slider</a></li>
-                                <li><a href="single-product-gallery-left.html">Product Gallery Left</a>
-                                </li>
-                                <li><a href="single-product-gallery-right.html">Product Gallery Right</a>
-                                </li>
-                                <li><a href="single-product-sticky-left.html">Product Sticky Left</a></li>
-                                <li><a href="single-product-sticky-right.html">Product Sticky Right</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#"><span class="menu-text">Other Shop Pages</span></a>
-                            <ul class="sub-menu">
-                                <li><a href="cart.html">Cart Page</a></li>
-                                <li><a href="checkout.html">Checkout Page</a></li>
-                                <li><a href="compare.html">Compare Page</a></li>
-                                <li><a href="wishlist.html">Wishlist Page</a></li>
-                                <li><a href="my-account.html">Account Page</a></li>
-                                <li><a href="login.html">Login & Register Page</a></li>
-                                <li><a href="empty-cart.html">Empty Cart Page</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#"><span class="menu-text">Pages</span></a>
-                            <ul class="sub-menu">
-                                <li><a href="404.html">404 Page</a></li>
-                                <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                                <li><a href="faq.html">Faq Page</a></li>
-                                <li><a href="coming-soon.html">Coming Soon Page</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li><a href="#"><span class="menu-text">Blog</span></a>
-                    <ul class="sub-menu">
-                        <li><a href="blog-grid.html">Blog Grid Page</a></li>
-                        <li><a href="blog-grid-left-sidebar.html">Grid Left Sidebar</a></li>
-                        <li><a href="blog-grid-right-sidebar.html">Grid Right Sidebar</a></li>
-                        <li><a href="blog-single.html">Blog Single Page</a></li>
-                        <li><a href="blog-single-left-sidebar.html">Single Left Sidebar</a></li>
-                        <li><a href="blog-single-right-sidebar.html">Single Right Sidbar</a>
-                    </ul>
-                </li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-            </ul>
-        </div>
-        <!-- OffCanvas Menu End -->
-        <div class="offcanvas-social mt-auto">
-            <ul>
-                <li>
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-google"></i></a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-youtube"></i></a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
 <!-- OffCanvas Menu End -->
 
 
@@ -185,16 +77,22 @@
                         </ul>
 
                     </div>
-                    <div class="pro-details-rating-wrap">
-                        <div class="rating-product">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <span class="read-review"><a class="reviews" href="#">( 5 Customer Review )</a></span>
-                    </div>
+                    <style>
+                         .ratings{display:flex;align-items:flex-start;margin-bottom:4px}
+                          .ratings .rating-wrap{font-size:14px;line-height:1;position:relative;color:#e4e4e4;white-space:nowrap}
+                           .ratings .rating-wrap::before{font-family:FontAwesome;content:"    "}
+                          .ratings .rating-wrap .star{position:absolute;top:0;left:0;overflow:hidden;color:#ffde00}
+                           .ratings .rating-wrap .star::before{font-family:FontAwesome;content:"    "}
+                        .ratings .rating-num{font-size:14px;line-height:1;margin-left:6px;color:#9f9e9e}
+                    </style>
+                    <span class="ratings">
+                        <span class="rating-wrap">
+
+                            <span class="star" style="width: {{RtingProduct($products->id)*20}}%"></span>
+                        </span>
+                        <span class="rating-num">({{ReviewProduct($products->id)}} )</span>
+                    </span>
+
                     <p class="mt-30px mb-0">{{$products->sort_description}}</p>
                     <form action="{{ route('cart.add', $products->id)}}" method="POST">
                         @csrf
@@ -281,7 +179,7 @@
             <div class="description-review-topbar nav">
                 <a data-bs-toggle="tab" href="#des-details2">Information</a>
                 <a class="active" data-bs-toggle="tab" href="#des-details1">Description</a>
-                <a data-bs-toggle="tab" href="#des-details3">Reviews (02)</a>
+                <a data-bs-toggle="tab" href="#des-details3">{{ReviewProduct($products->id)}}</a>
             </div>
             <div class="tab-content description-review-bottom">
                 <div id="des-details2" class="tab-pane">
@@ -303,108 +201,44 @@
                 </div>
                 <div id="des-details3" class="tab-pane">
                     <div class="row">
-                        <div class="col-lg-7">
+                        <div class="col-lg-12">
                             <div class="review-wrapper">
+                                @foreach ($CommentRatins as $comment)
                                 <div class="single-review">
                                     <div class="review-img">
-                                        <img src="assets/images/review-image/1.png" alt="" />
+                                        <img width="50" src="{{asset('uploads/profile_photos')}}/{{$comment->relationRatingwithuser->profile_photo}}" alt="" />
                                     </div>
                                     <div class="review-content">
                                         <div class="review-top-wrap">
                                             <div class="review-left">
                                                 <div class="review-name">
-                                                    <h4>White Lewis</h4>
+                                                    <h4>{{$comment->relationRatingwithuser->name}}</h4>
                                                 </div>
-                                                <div class="rating-product">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
+
                                             </div>
-                                            <div class="review-left">
-                                                <a href="#">Reply</a>
-                                            </div>
+
+
                                         </div>
+                                        <span class="ratings">
+                                            <span class="rating-wrap">
+
+                                                <span class="star" style="width: {{$comment->rate*20}}%"></span>
+                                            </span>
+                                            <span class="rating-num"></span>
+                                        </span>
                                         <div class="review-bottom">
                                             <p>
-                                                Vestibulum ante ipsum primis aucibus orci luctustrices posuere
-                                                cubilia Curae Suspendisse viverra ed viverra. Mauris ullarper
-                                                euismod vehicula. Phasellus quam nisi, congue id nulla.
+                                                {{$comment->massege}}
                                             </p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="single-review child-review">
-                                    <div class="review-img">
-                                        <img src="assets/images/review-image/2.png" alt="" />
-                                    </div>
-                                    <div class="review-content">
-                                        <div class="review-top-wrap">
-                                            <div class="review-left">
-                                                <div class="review-name">
-                                                    <h4>White Lewis</h4>
-                                                </div>
-                                                <div class="rating-product">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                            </div>
-                                            <div class="review-left">
-                                                <a href="#">Reply</a>
-                                            </div>
-                                        </div>
-                                        <div class="review-bottom">
-                                            <p>Vestibulum ante ipsum primis aucibus orci luctustrices posuere
-                                                cubilia Curae Sus pen disse viverra ed viverra. Mauris ullarper
-                                                euismod vehicula.</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
+
+
                             </div>
                         </div>
-                        <div class="col-lg-5">
-                            <div class="ratting-form-wrapper pl-50">
-                                <h3>Add a Review</h3>
-                                <div class="ratting-form">
-                                    <form action="#">
-                                        <div class="star-box">
-                                            <span>Your rating:</span>
-                                            <div class="rating-product">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="rating-form-style">
-                                                    <input placeholder="Name" type="text" />
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="rating-form-style">
-                                                    <input placeholder="Email" type="email" />
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="rating-form-style form-submit">
-                                                    <textarea name="Your Review" placeholder="Message"></textarea>
-                                                    <button class="btn btn-primary btn-hover-color-primary "
-                                                        type="submit" value="Submit">Submit</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>

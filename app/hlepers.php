@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Cart;
+use App\Models\Rating;
 use App\Models\User;
 
  function wishlists(){
@@ -18,6 +19,22 @@ function VendorName($all_product){
     function CartvendorName($product_id){
 
         return User::where('id', Cart::find($product_id)->vendor_id)->first()->name;
+    }
+    function RtingProduct($product_id){
+
+        return Rating::where('product_id', $product_id)->avg('rate');
+
+    }
+    function ReviewProduct($product_id){
+
+        //return Rating::where('product_id', $product_id)->count();
+        if(Rating::where('product_id', $product_id)->count() >=2){
+            return Rating::where('product_id', $product_id)->count(). " Reviews";
+        }
+        else{
+            return Rating::where('product_id', $product_id)->count(). " Review";
+        }
+
     }
 
 

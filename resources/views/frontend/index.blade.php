@@ -307,9 +307,10 @@
                                         <div class="content">
                                             <span class="ratings">
                                                 <span class="rating-wrap">
-                                                    <span class="star" style="width: 80%"></span>
+
+                                                    <span class="star" style="width: {{RtingProduct($all_product->id)*20}}%"></span>
                                                 </span>
-                                                <span class="rating-num">( 4 Review )</span>
+                                                <span class="rating-num">({{ReviewProduct($all_product->id)}} )</span>
                                             </span>
                                             <h5 class="title"><a href="{{ route('product.details',$all_product->slug )}}">{{$all_product->product_name}}</a>
                                             </h5>

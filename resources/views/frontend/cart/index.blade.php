@@ -162,7 +162,7 @@
                             <div class="discount-code">
                                 <p>Enter your coupon code if you have one.</p>
                                 <form>
-                                    <input type="text"  name="coupon_name" />
+                                    <input type="text"  name="coupon_name" value="{{($cupon_name)?$cupon_name:''}}">
                                     <button class="cart-btn-2" type="submit">Apply Coupon</button>
                                 </form>
                             </div>
@@ -175,7 +175,12 @@
                     </div>
                     @php
                          Session::put('Total_price',$total_price);
-                         Session::put('cupon_name', $cupon_name);
+                         if ($cupon_name) {
+                            Session::put('cupon_name', $cupon_name);
+                         }else {
+                            Session::put('cupon_name', '');
+                         }
+
                          Session::put('discount_price', $discount_price);
 
 
@@ -188,7 +193,7 @@
                             </div>
                             <h5>Total Carts <span>${{$total_price}}</span> </h5>
                             <h5>Discount ({{$cupon_name}}) <span>${{$discount_price}}</span> </h5>
-                            <h5>Total AllPrice <span id="total_price">{{$total_price - $discount_price}}</span> <span>$</span></h5>
+                            <h5>Total AllPrice (rounded) <span id="total_price">{{ round($total_price - $discount_price) }}</span> <span>$</span></h5>
                             <div class="total-shipping">
                                 <h5>Total shipping</h5>
                                 <ul>
@@ -197,7 +202,7 @@
                                     <li><input type="radio" id="btn3" name="shiping" /> Free <span>$00.00</span></li>
                                 </ul>
                             </div>
-                            <h4 class="grand-totall-title">Grand Total <span id="grand_total">{{$total_price - $discount_price}}</span> <span>$</span></h4>
+                            <h4 class="grand-totall-title">Grand Total <span id="grand_total">{{round($total_price - $discount_price)}}</span> <span>$</span></h4>
                             @if ($result)
                                 <span class="text-danger">Plause Remove Stock Out Product</span>
                                 @else

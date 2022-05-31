@@ -21,6 +21,16 @@
 
             </ul>
         </li>
+
+        <li>
+            <a href="javascript: void(0);"><i class="fi-layers"></i> <span>  Order List </span> <span class="menu-arrow"></span></a>
+            <ul class="nav-second-level" aria-expanded="false">
+                <li><a href="{{ route('order.list') }}">All Order</a></li>
+
+
+            </ul>
+        </li>
+
         <li>
             <a href="javascript: void(0);"><i class="fi-layers"></i> <span> Vendor </span> <span class="menu-arrow"></span></a>
             <ul class="nav-second-level" aria-expanded="false">
@@ -41,19 +51,28 @@
             <a href="javascript: void(0);"><i class="fi-layers"></i> <span>  Location </span> <span class="menu-arrow"></span></a>
             <ul class="nav-second-level" aria-expanded="false">
                 <li><a href="{{ route('location') }}">Add Location</a></li>
-                <li><a href="">List Cupon</a></li>
+
 
             </ul>
         </li>
-    @elseif (auth()->user()->role == '3')
-    <li>
-        <a href="javascript: void(0);"><i class="fi-layers"></i> <span> Product </span> <span class="menu-arrow"></span></a>
-        <ul class="nav-second-level" aria-expanded="false">
-            <li><a href="{{ route('product.index')}}">Add Product</a></li>
-            <li><a href="{{ route('product.create')}}">List Product</a></li>
+        @elseif (auth()->user()->role == '3')
+        <li>
+            <a href="javascript: void(0);"><i class="fi-layers"></i> <span> Product </span> <span class="menu-arrow"></span></a>
+            <ul class="nav-second-level" aria-expanded="false">
+                <li><a href="{{ route('product.index')}}">Add Product</a></li>
+                <li><a href="{{ route('product.create')}}">List Product</a></li>
 
-        </ul>
-    </li>
+            </ul>
+        </li>
+        @else
+        <li>
+            <a href="javascript: void(0);"><i class="fi-layers"></i> <span> Orders List </span> <span class="menu-arrow"></span></a>
+            <ul class="nav-second-level" aria-expanded="false">
+
+                <li><a href="{{route('order.details')}}">List Order</a></li>
+
+            </ul>
+        </li>
     @endif
 
 

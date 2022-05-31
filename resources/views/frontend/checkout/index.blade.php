@@ -33,6 +33,15 @@
             <form action="{{ route('checkout.store')}}" method="POST">
                 @csrf
             <div class="row">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
 
                     <div class="col-lg-7">
                         <div class="billing-info-wrap">
@@ -69,25 +78,31 @@
                                         </select>
                                     </div>
                                 </div>
-
                                 <div class="col-lg-12">
                                     <div class="billing-select mb-4">
                                         <label>City</label>
                                         <select name="city" id="city_drop_down" disabled>
-                                            <option>Select a City</option>
-
-                                            <option>Nai</option>
-
-
-
+                                            <option>Select a country</option>
                                         </select>
                                     </div>
                                 </div>
 
-                                <div class="col-lg-6 col-md-6">
+
+
+                                <div class="col-lg-12 col-md-12">
                                     <div class="billing-info mb-4">
                                         <label>Postcode / ZIP</label>
                                         <input type="text" name="postcode">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="billing-select mb-4">
+                                        <label>Select Payment Gateway</label>
+                                        <select name="payment_way">
+                                            <option value="1">Cash On Dalivery</option>
+                                            <option value="2">On Line Dalivery</option>
+                                        </select>
                                     </div>
                                 </div>
 
@@ -136,8 +151,8 @@
                                             <li>${{Session::get('discount_price')}}</li>
                                         </ul>
                                         <ul>
-                                            <li class="your-order-shipping">Total All</li>
-                                            <li>${{Session::get('Total_price') - Session::get('discount_price')}}</li>
+                                            <li class="your-order-shipping">Total All(Rounded)</li>
+                                            <li>${{round(Session::get('Total_price') - Session::get('discount_price'))}}</li>
                                         </ul>
                                         <ul>
                                             <li class="your-order-shipping">Shipping</li>
@@ -146,62 +161,12 @@
                                     </div>
                                     <div class="your-order-total">
                                         <ul>
-                                            <li class="order-total">Total</li>
-                                            <li>$100</li>
+                                            <li class="order-total">Grand Total</li>
+                                            <li>${{round(Session::get('Total_price') - Session::get('discount_price')+20)}}</li>
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="payment-method">
-                                    <div class="payment-accordion element-mrg">
-                                        <div id="faq" class="panel-group">
-                                            <div class="panel panel-default single-my-account m-0">
-                                                <div class="panel-heading my-account-title">
-                                                    <h4 class="panel-title"><a data-bs-toggle="collapse"
-                                                            href="#my-account-1" class="collapsed"
-                                                            aria-expanded="true">Direct bank transfer</a>
-                                                    </h4>
-                                                </div>
-                                                <div id="my-account-1" class="panel-collapse collapse show"
-                                                    data-bs-parent="#faq">
 
-                                                    <div class="panel-body">
-                                                        <p>Please send a check to Store Name, Store Street, Store Town,
-                                                            Store State / County, Store Postcode.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="panel panel-default single-my-account m-0">
-                                                <div class="panel-heading my-account-title">
-                                                    <h4 class="panel-title"><a data-bs-toggle="collapse"
-                                                            href="#my-account-2" aria-expanded="false"
-                                                            class="collapsed">Check payments</a></h4>
-                                                </div>
-                                                <div id="my-account-2" class="panel-collapse collapse"
-                                                    data-bs-parent="#faq">
-
-                                                    <div class="panel-body">
-                                                        <p>Please send a check to Store Name, Store Street, Store Town,
-                                                            Store State / County, Store Postcode.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="panel panel-default single-my-account m-0">
-                                                <div class="panel-heading my-account-title">
-                                                    <h4 class="panel-title"><a data-bs-toggle="collapse"
-                                                            href="#my-account-3">Cash on delivery</a></h4>
-                                                </div>
-                                                <div id="my-account-3" class="panel-collapse collapse"
-                                                    data-bs-parent="#faq">
-
-                                                    <div class="panel-body">
-                                                        <p>Please send a check to Store Name, Store Street, Store Town,
-                                                            Store State / County, Store Postcode.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                             <div class="Place-order mt-25">
                                 <input type="submit" class="btn btn-danger" value="Place Order">

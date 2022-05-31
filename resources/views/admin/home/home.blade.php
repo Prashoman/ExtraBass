@@ -4,6 +4,11 @@
 
 <div class="content">
     <div class="container-fluid">
+        @if(session('success_payment'))
+                            <div class="alert alert-success mt-5">
+                                {{session('success_payment')}}
+                            </div>
+                        @endif
 
 
         <!-- end row -->

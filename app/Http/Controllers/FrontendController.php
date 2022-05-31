@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Rating;
 use App\Models\Wishlist;
 use Illuminate\Http\Request;
 
@@ -35,8 +36,9 @@ class FrontendController extends Controller
         $categoris = Category::all();
         $products = Product::where('slug', $slug)->first();
 
+       $CommentRatins = Rating::where('product_id', Product::where('slug', $slug)->first()->id)->get();
         // echo $product;
-        return view('frontend.productdetails', compact('categoris', 'products', 'related_products', 'wishlist', 'wishlist_id'));
+        return view('frontend.productdetails', compact('categoris', 'products', 'related_products', 'wishlist', 'wishlist_id', 'CommentRatins'));
     }
 
     public function categorywish($id){
